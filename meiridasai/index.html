@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日大赛主题大赛骑乘-骑乘主题大赛每日热点_大赛主题骑乘合集</title>
+<meta name="description" content="每日大赛主题大赛骑乘页面聚合每日大赛骑乘主题的热点合集与主题看点，按主题分区呈现骑乘相关大赛内容，便于快速浏览当日主题与往期主题。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23171a21'/%3E%3Cpath d='M14 42c8-18 28-18 36 0' stroke='%23f0a24b' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='24' r='6' fill='%23f0a24b'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#171a21;
+  --ink-2:#232733;
+  --paper:#f6f2ea;
+  --paper-2:#fffdf8;
+  --line:#e2d9c9;
+  --gold:#f0a24b;
+  --gold-deep:#c9762a;
+  --text:#2b2a28;
+  --muted:#6d675e;
+  --radius:16px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--text);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img,svg{display:block;max-width:100%;}
+.wrap{width:min(1120px,92vw);margin:0 auto;}
+
+/* header */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:rgba(23,26,33,.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(240,162,75,.28);
+}
+.bar{display:flex;align-items:center;gap:24px;padding:14px 0;}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.logo svg{width:34px;height:34px;}
+.logo span{
+  color:var(--paper);font-weight:700;font-size:16px;letter-spacing:.5px;
+  line-height:1.2;
+}
+nav.main{flex:1;display:flex;gap:22px;flex-wrap:wrap;}
+nav.main a{
+  color:#cfc8bb;font-size:14.5px;padding:4px 0;
+  border-bottom:2px solid transparent;transition:.2s;
+}
+nav.main a:hover{color:var(--gold);border-bottom-color:var(--gold);}
+.hot-link{
+  background:var(--gold);color:#1b1508!important;font-weight:700;
+  padding:8px 16px!important;border-radius:999px;font-size:13.5px;
+  border-bottom:none!important;transition:.2s;white-space:nowrap;
+}
+.hot-link:hover{background:#ffb968;}
+
+/* hero */
+.hero{
+  background:
+    radial-gradient(circle at 82% 18%,rgba(240,162,75,.22),transparent 46%),
+    radial-gradient(circle at 10% 90%,rgba(240,162,75,.10),transparent 42%),
+    var(--ink);
+  color:var(--paper);
+  padding:56px 0 64px;
+  overflow:hidden;
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;letter-spacing:1.5px;color:var(--gold);
+  border:1px solid rgba(240,162,75,.45);border-radius:999px;
+  padding:5px 14px;margin-bottom:18px;
+}
+h1{
+  font-size:clamp(26px,3.6vw,42px);
+  line-height:1.28;margin:0 0 18px;font-weight:800;letter-spacing:.5px;
+}
+h1 em{font-style:normal;color:var(--gold);}
+.hero p.lead{color:#cbc5b9;font-size:15.5px;margin:0 0 26px;max-width:36em;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 24px;border-radius:999px;font-size:14.5px;font-weight:700;
+  transition:.2s;
+}
+.btn-gold{background:var(--gold);color:#1b1508;}
+.btn-gold:hover{background:#ffb968;transform:translateY(-1px);}
+.btn-ghost{border:1px solid #4a4d57;color:#dcd6c9;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.btn[aria-disabled="true"]{
+  opacity:.72;cursor:default;pointer-events:none;
+}
+.hero-art{position:relative;}
+.hero-art svg{width:100%;height:auto;filter:drop-shadow(0 18px 40px rgba(0,0,0,.45));}
+
+/* section base */
+section.block{padding:54px 0 10px;}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:26px;flex-wrap:wrap;}
+.sec-head h2{
+  font-size:clamp(20px,2.4vw,26px);margin:0;font-weight:800;color:var(--ink);
+  display:flex;align-items:center;gap:10px;
+}
+.sec-head h2::before{
+  content:"";width:6px;height:22px;background:var(--gold);border-radius:3px;
+}
+.sec-head p{margin:0;color:var(--muted);font-size:14px;max-width:34em;}
+
+/* today cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.card{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 22px 20px;display:flex;flex-direction:column;gap:10px;
+  transition:.22s;position:relative;overflow:hidden;
+}
+.card::after{
+  content:"";position:absolute;inset:auto -30% -60% auto;width:120px;height:120px;
+  background:radial-gradient(circle,rgba(240,162,75,.16),transparent 70%);
+}
+.card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 12px 26px rgba(43,42,40,.08);}
+.tag{
+  align-self:flex-start;font-size:12px;font-weight:700;color:var(--gold-deep);
+  background:rgba(240,162,75,.14);padding:3px 10px;border-radius:999px;letter-spacing:.5px;
+}
+.card h3{margin:0;font-size:17px;font-weight:800;color:var(--ink);line-height:1.45;}
+.card p{margin:0;font-size:14px;color:var(--muted);}
+.card .meta{margin-top:auto;font-size:12.5px;color:#9a9385;display:flex;gap:12px;flex-wrap:wrap;}
+
+/* themes list */
+.theme-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.theme-item{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px 22px;display:flex;gap:16px;align-items:flex-start;
+}
+.num{
+  flex-shrink:0;width:38px;height:38px;border-radius:12px;background:var(--ink);
+  color:var(--gold);font-weight:800;display:grid;place-items:center;font-size:15px;
+}
+.theme-item h3{margin:0 0 6px;font-size:16px;color:var(--ink);font-weight:800;}
+.theme-item p{margin:0;font-size:13.8px;color:var(--muted);}
+
+/* article */
+.article{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:20px;
+  padding:34px 36px;margin-top:8px;
+}
+.article h2{font-size:22px;margin:0 0 16px;color:var(--ink);font-weight:800;}
+.article h3{font-size:16.5px;margin:24px 0 8px;color:var(--ink);font-weight:800;}
+.article p{margin:0 0 12px;font-size:15px;color:#3c3934;max-width:46em;}
+.article .hl{color:var(--gold-deep);font-weight:700;}
+.facts{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 4px;
+}
+.fact{
+  background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  padding:16px 14px;text-align:center;
+}
+.fact b{display:block;font-size:22px;color:var(--gold-deep);font-weight:800;line-height:1.2;}
+.fact span{font-size:12.5px;color:var(--muted);}
+
+/* how to */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.step{
+  background:var(--ink);color:var(--paper);border-radius:var(--radius);
+  padding:24px 22px;
+}
+.step .k{font-size:12px;letter-spacing:1.6px;color:var(--gold);font-weight:700;}
+.step h3{margin:10px 0 8px;font-size:17px;font-weight:800;}
+.step p{margin:0;font-size:13.8px;color:#bdb7aa;}
+
+/* faq */
+.faq{display:flex;flex-direction:column;gap:12px;}
+details{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:12px;
+  padding:16px 20px;
+}
+details[open]{border-color:var(--gold);}
+summary{
+  cursor:pointer;font-weight:700;color:var(--ink);font-size:15px;
+  list-style:none;display:flex;justify-content:space-between;gap:12px;
+}
+summary::-webkit-details-marker{display:none;}
+summary::after{content:"＋";color:var(--gold-deep);font-weight:800;}
+details[open] summary::after{content:"－";}
+details p{margin:12px 0 0;font-size:14px;color:var(--muted);}
+
+/* footer */
+footer.site{
+  background:var(--ink);color:#a9a294;margin-top:64px;padding:40px 0 28px;
+}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;}
+footer .brand{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+footer .brand svg{width:30px;height:30px;}
+footer .brand span{color:var(--paper);font-weight:800;font-size:15px;line-height:1.3;}
+footer p{font-size:13.5px;margin:0;color:#8f897d;line-height:1.8;}
+footer h4{color:var(--paper);font-size:14px;margin:0 0 12px;font-weight:700;}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;}
+footer ul a{font-size:13.5px;color:#a9a294;}
+footer ul a:hover{color:var(--gold);}
+.copy{
+  border-top:1px solid #2e313b;margin-top:30px;padding-top:18px;
+  font-size:12.5px;color:#75705f;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-art{max-width:340px;margin:0 auto;}
+  .cards{grid-template-columns:1fr 1fr;}
+  .facts{grid-template-columns:1fr 1fr;}
+  .steps{grid-template-columns:1fr;}
+  .foot-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  .bar{flex-wrap:wrap;gap:12px;padding:12px 0;}
+  nav.main{gap:14px;order:3;width:100%;}
+  nav.main a{font-size:13.5px;}
+  .hot-link{order:2;margin-left:auto;}
+  .cards{grid-template-columns:1fr;}
+  .theme-list{grid-template-columns:1fr;}
+  .article{padding:24px 20px;}
+  .foot-grid{grid-template-columns:1fr;}
+  .hero{padding:38px 0 46px;}
+  section.block{padding:40px 0 6px;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="每日大赛主题大赛骑乘 首页">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#232733"/>
+        <path d="M14 42c8-18 28-18 36 0" stroke="#f0a24b" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <circle cx="32" cy="24" r="6" fill="#f0a24b"/>
+      </svg>
+      <span>每日大赛主题大赛骑乘</span>
+    </a>
+    <nav class="main">
+      <a href="#today">今日主题</a>
+      <a href="#themes">主题分区</a>
+      <a href="#read">主题观察</a>
+      <a href="#howto">怎么看</a>
+      <a href="#faq">常见问答</a>
+    </nav>
+    <a class="hot-link" href="#today">看今日骑乘主题</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">每日大赛 · 骑乘主题</span>
+        <h1>每日大赛主题大赛骑乘</h1>
+        <p class="lead">每天一场主题大赛，骑乘是其中最常被点开的主题之一。这里按日汇总骑乘主题的大赛看点、主题分区与往期脉络，把当日内容放在最前，方便你快速进入主题。</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#today">浏览今日骑乘主题</a>
+          <a class="btn btn-ghost" href="#themes">查看主题分区</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 320" role="presentation">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f0a24b"/>
+              <stop offset="1" stop-color="#c9762a"/>
+            </linearGradient>
+          </defs>
+          <rect x="10" y="20" width="400" height="280" rx="24" fill="#232733"/>
+          <circle cx="330" cy="86" r="40" fill="url(#g1)" opacity=".18"/>
+          <circle cx="90" cy="240" r="52" fill="url(#g1)" opacity=".12"/>
+          <path d="M60 210c40-70 100-96 150-96s110 26 150 96" stroke="url(#g1)" stroke-width="8" fill="none" stroke-linecap="round"/>
+          <circle cx="210" cy="130" r="22" fill="url(#g1)"/>
+          <rect x="96" y="238" width="228" height="10" rx="5" fill="#3a3f4d"/>
+          <rect x="130" y="262" width="160" height="8" rx="4" fill="#31353f"/>
+          <circle cx="150" cy="196" r="7" fill="#f0a24b" opacity=".85"/>
+          <circle cx="270" cy="196" r="7" fill="#f0a24b" opacity=".85"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- TODAY -->
+  <section class="block" id="today">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>今日骑乘主题看点</h2>
+        <p>每日大赛按日更新主题，骑乘主题当日的看点集中在三处：主题设定、呈现角度与讨论焦点。</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="tag">今日主题</span>
+          <h3>骑乘主题的设定方向</h3>
+          <p>当日骑乘主题通常围绕姿态、节奏与场景展开，主题说明先给出核心设定，再交由参与者自由发挥。</p>
+          <div class="meta"><span>主题区 · 骑乘</span><span>每日更新</span></div>
+        </article>
+        <article class="card">
+          <span class="tag">呈现角度</span>
+          <h3>同一主题的不同表达</h3>
+          <p>同样的骑乘主题，有人侧重氛围，有人侧重构图，差异本身就是每日大赛主题大赛骑乘的看点所在。</p>
+          <div class="meta"><span>主题区 · 骑乘</span><span>看点合集</span></div>
+        </article>
+        <article class="card">
+          <span class="tag">讨论焦点</span>
+          <h3>被反复提到的细节</h3>
+          <p>评论区常围绕主题还原度与细节处理展开讨论，这些反馈会沉淀进下一轮骑乘主题的说明里。</p>
+          <div class="meta"><span>主题区 · 骑乘</span><span>读者反馈</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- THEMES -->
+  <section class="block" id="themes">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>主题分区与往期脉络</h2>
+        <p>把每日大赛的骑乘主题按时间与方向拆开，往期内容形成可回看的主题脉络。</p>
+      </div>
+      <div class="theme-list">
+        <div class="theme-item">
+          <div class="num">01</div>
+          <div>
+            <h3>骑乘主题 · 当日主区</h3>
+            <p>放置当天全部骑乘主题内容，是每日大赛主题大赛骑乘最直接的入口，按更新时间排序。</p>
+          </div>
+        </div>
+        <div class="theme-item">
+          <div class="num">02</div>
+          <div>
+            <h3>骑乘主题 · 往期回看</h3>
+            <p>保留前几轮骑乘主题的完整设定，适合对比同一主题在不同日期下的表达变化。</p>
+          </div>
+        </div>
+        <div class="theme-item">
+          <div class="num">03</div>
+          <div>
+            <h3>骑乘主题 · 设定与说明</h3>
+            <p>汇总主题规则与设定要点，帮助第一次进入骑乘主题的读者先弄清主题边界再浏览内容。</p>
+          </div>
+        </div>
+        <div class="theme-item">
+          <div class="num">04</div>
+          <div>
+            <h3>骑乘主题 · 讨论摘录</h3>
+            <p>摘录评论区里被点赞较多的观点，呈现读者对骑乘主题的真实看法与关注点。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLE -->
+  <section class="block" id="read">
+    <div class="wrap">
+      <div class="article">
+        <h2>读懂每日大赛里的骑乘主题</h2>
+        <p>在每日大赛中，<span class="hl">每日大赛主题大赛骑乘</span>并不是一个固定不变的栏目，而是每天随主题轮换出现的内容方向。它的核心在于「主题」二字：先有主题设定，再有围绕设定的呈现。理解这一点，浏览时就不容易把骑乘主题当成单纯的素材堆叠。</p>
+
+        <h3>主题设定先于内容</h3>
+        <p>每天的骑乘主题会先给出一个简短的设定说明，说明中交代场景、氛围与基本限制。设定越清楚，当日内容的可比性就越强。这也是每日大赛主题大赛骑乘值得按日回看的原因——同一设定下的差异，比零散浏览更容易看出门道。</p>
+
+        <h3>呈现角度构成看点</h3>
+        <p>骑乘主题的呈现角度通常分为三类：注重整体氛围的、注重局部细节的、注重叙事连贯的。三类角度没有高下之分，但放在一起看，能让每日大赛主题大赛骑乘的当日主题显得层次分明。读者可以按自己偏好的角度切入，再横向比较。</p>
+
+        <h3>讨论沉淀为下一轮主题</h3>
+        <p>评论区与反馈是每日大赛主题大赛骑乘的一部分。被反复提到的细节，往往会进入下一轮骑乘主题的说明里，形成从内容到主题、再从主题到内容的循环。因此往期回看并非可有可无，它解释了今天这个主题为什么这样设定。</p>
+
+        <div class="facts">
+          <div class="fact"><b>每日</b><span>主题更新节奏</span></div>
+          <div class="fact"><b>3 类</b><span>常见呈现角度</span></div>
+          <div class="fact"><b>4 个</b><span>主题分区</span></div>
+          <div class="fact"><b>往期</b><span>可回看脉络</span></div>
+        </div>
+
+        <h3>怎么安排浏览顺序</h3>
+        <p>建议先看当日主区，建立对骑乘主题的第一印象；再翻往期回看，比较同一主题在不同日期的处理；最后读讨论摘录，了解其他读者的关注点。按这个顺序，每日大赛主题大赛骑乘的信息会自然串成一条线，而不是散落的条目。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOWTO -->
+  <section class="block" id="howto">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>三步进入骑乘主题</h2>
+        <p>不追求一次看完，按节奏推进更适合每日更新的主题栏目。</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="k">STEP 01</span>
+          <h3>先读当日设定</h3>
+          <p>用一两分钟读完骑乘主题的设定说明，明确今天的主题边界，再决定从哪个角度切入。</p>
+        </div>
+        <div class="step">
+          <span class="k">STEP 02</span>
+          <h3>横向比较角度</h3>
+          <p>在同一主题下对比不同呈现角度，找出自己更关注的部分，减少无效浏览。</p>
+        </div>
+        <div class="step">
+          <span class="k">STEP 03</span>
+          <h3>回看往期脉络</h3>
+          <p>隔几天回看一次往期，能更清楚地看到骑乘主题在每日大赛中的演变方向。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>常见问答</h2>
+        <p>关于每日大赛骑乘主题，读者问得较多的几个问题。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>每日大赛的骑乘主题每天都换吗？</summary>
+          <p>主题按日更新，骑乘主题会在轮换中出现。具体当天的主题以页面今日主区的设定说明为准。</p>
+        </details>
+        <details>
+          <summary>往期的骑乘主题还能看到吗？</summary>
+          <p>可以。往期回看分区保留了前几轮骑乘主题的设定与内容，便于对比同一主题在不同日期下的表达。</p>
+        </details>
+        <details>
+          <summary>第一次来应该从哪看起？</summary>
+          <p>建议从今日主区开始，读完当日设定后再翻往期与讨论摘录。这样对每日大赛主题大赛骑乘的整体结构会更清楚。</p>
+        </details>
+        <details>
+          <summary>页面是否提供下载？</summary>
+          <p>主题下载入口正在准备中，当前按钮处于不可用状态，待地址确定后会开放。页面上的浏览与回看功能不受影响。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#2c3040"/>
+            <path d="M14 42c8-18 28-18 36 0" stroke="#f0a24b" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <circle cx="32" cy="24" r="6" fill="#f0a24b"/>
+          </svg>
+          <span>每日大赛主题大赛骑乘</span>
+        </div>
+        <p>按日汇总骑乘主题的大赛看点、主题分区与往期脉络，把当日内容放在最前，方便快速进入主题。</p>
+      </div>
+      <div>
+        <h4>页面导航</h4>
+        <ul>
+          <li><a href="#today">今日骑乘主题</a></li>
+          <li><a href="#themes">主题分区</a></li>
+          <li><a href="#read">主题观察</a></li>
+          <li><a href="#faq">常见问答</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>主题下载</h4>
+        <ul>
+          <li><a href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1" style="pointer-events:none">下载骑乘主题合集</a></li>
+          <li><a href="#howto">浏览方式</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>每日大赛主题大赛骑乘 · 主题首页</span>
+      <span>内容以当日主题设定为准</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
